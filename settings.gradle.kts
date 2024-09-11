@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CanvasBuilder"
+rootProject.name = "FlexCompose"
 include(":shared")
