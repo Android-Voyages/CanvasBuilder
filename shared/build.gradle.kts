@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("signing")
     id("maven-publish")
+    alias(libs.plugins.kotlinSerialization)
     id("org.jetbrains.compose") version "1.6.11"
 
 }
@@ -40,6 +41,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
+            implementation(libs.kotlinx.serialization.json)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
