@@ -16,7 +16,10 @@ kotlin {
             }
         }
     }
-    
+
+
+    jvm("desktop")
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -32,6 +35,7 @@ kotlin {
         androidMain.dependencies {
             implementation(kotlin("stdlib"))
             implementation(libs.androidx.activity.compose)
+
         }
         iosMain.dependencies {
 
