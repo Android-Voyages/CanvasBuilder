@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     id("signing")
     id("maven-publish")
+    id("org.jetbrains.compose") version "1.6.11"
 
 }
 
@@ -10,7 +11,7 @@ kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
@@ -29,13 +30,16 @@ kotlin {
     sourceSets {
         androidMain.dependencies {
             implementation(kotlin("stdlib"))
-
+            implementation(libs.androidx.activity.compose)
         }
         iosMain.dependencies {
 
         }
         commonMain.dependencies {
             implementation(kotlin("stdlib-common"))
+            implementation(compose.runtime)
+            implementation(libs.compose.foundation)
+            implementation(libs.compose.material3)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -73,7 +77,7 @@ publishing{
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/Android-Voyages/CanvasBuilder.git")
+                    connection.set("scm:git:git://github.com/Android-Voyages/FlexCompose.git")
                     developerConnection.set("scm:git:ssh://github.com/Android-Voyages/FlexCompose.git")
                     url.set("https://github.com/Android-Voyages/FlexCompose")
                 }
@@ -92,8 +96,14 @@ android {
     defaultConfig {
         minSdk = 24
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.7.1"
+    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
