@@ -1,4 +1,3 @@
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.compose")
@@ -7,16 +6,15 @@ plugins {
 }
 
 kotlin {
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "core"
-            isStatic = true
-        }
+    js{
+        browser()
+        binaries.executable()
     }
+    jvm("desktop")
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
     androidTarget()
     jvmToolchain(17)
 
@@ -30,5 +28,5 @@ kotlin {
 }
 android {
     namespace = "th.observer.FlexCompose"
-    compileSdk = 34
+    compileSdk = 35
 }
