@@ -22,4 +22,6 @@ dependencyResolutionManagement {
 rootProject.name = "FlexCompose"
 include(":core")
 include(":ui")
-include(":platform")
+include(":platform-specific")
+include(":json")
+include(":shared")

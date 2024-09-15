@@ -1,9 +1,11 @@
 [versions]
 #Plugins
+coreKtx = "1.13.1"
 multidex = "2.0.1"
 plugin-android = "8.3.2"
 plugin-compose = "1.6.11"
 compose = "1.7.1"
+plugin-compose-compiler = "1.5.10"
 
 #Multiplatform
 kotlin = "2.0.10"
@@ -19,9 +21,14 @@ coil = "2.5.0"
 androidx-appcompat = "1.7.0"
 androidx-activityCompose = "1.9.2"
 
+#Android
+minSdk = "24"
+maxSdk = "34"
+
 [libraries]
 
 #Plugin-Gradle-buildsrc
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
 plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 plugin-android = { module = "com.android.tools.build:gradle", version.ref = "plugin-android" }
