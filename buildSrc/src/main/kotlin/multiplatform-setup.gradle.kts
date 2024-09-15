@@ -6,11 +6,7 @@ plugins {
 }
 
 kotlin {
-    js{
-        browser()
-        binaries.executable()
-    }
-    jvm("desktop")
+
 
     iosX64()
     iosArm64()
